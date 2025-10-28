@@ -1,0 +1,141 @@
+# ==========================================
+# GGTP Complete Requirements
+# ==========================================
+# This file includes all dependencies for GGTP and nuPlan devkit
+
+# ==========================================
+# Core Python Dependencies
+# ==========================================
+numpy>=1.21.0,<1.24.0  # nuPlan requires <1.24
+scipy>=1.7.0
+pandas>=1.3.0
+matplotlib>=3.4.0
+tqdm>=4.62.0
+pyyaml>=5.4.0
+
+# ==========================================
+# Geometry and GIS
+# ==========================================
+shapely>=1.8.0
+geopandas>=0.12.1
+fiona>=1.8.0
+rasterio>=1.3.0
+pyogrio>=0.5.0
+
+# Computer Vision
+opencv-python>=4.5.0
+pillow==9.5.0
+
+# File locking (Windows compatibility for fcntl)
+# On Windows, install this to handle file locking
+filelock>=3.0.0
+
+# ==========================================
+# Async I/O (required by nuPlan)
+# ==========================================
+aiofiles>=0.8.0
+aioboto3>=10.0.0
+boto3>=1.24.0
+nest-asyncio>=1.5.0
+
+# ==========================================
+# Deep Learning Framework
+# ==========================================
+# IMPORTANT: Install PyTorch BEFORE other packages
+# For CUDA 11.7:
+#   conda install pytorch==2.0.1 pytorch-cuda=11.7 -c pytorch -c nvidia
+# For CPU only:
+#   conda install pytorch==2.0.1 cpuonly -c pytorch
+#
+# torch>=2.0.0
+# torchvision>=0.15.0
+
+# ==========================================
+# Graph Neural Networks
+# ==========================================
+# IMPORTANT: Install PyTorch Geometric AFTER PyTorch
+# pip install torch-geometric
+# pip install torch-scatter torch-sparse -f https://data.pyg.org/whl/torch-2.0.1+cu117.html
+#
+# torch-geometric>=2.3.0
+# torch-scatter>=2.1.0
+# torch-sparse>=0.6.0
+
+# ==========================================
+# nuPlan Devkit Dependencies
+# ==========================================
+# Visualization
+bokeh>=2.4.0
+plotly>=5.0.0
+
+# Utilities
+cachetools>=4.2.0
+joblib>=1.0.0
+mock>=4.0.0
+docker>=5.0.0
+
+# Testing
+coverage>=6.0.0
+hypothesis>=6.0.0
+pytest>=7.0.0
+pytest-cov>=3.0.0
+
+# Configuration
+hydra-core>=1.1.0
+omegaconf>=2.1.0
+
+# Data Processing
+pyarrow>=6.0.0
+pyquaternion>=0.9.9
+
+# Networking
+grpcio>=1.40.0
+grpcio-tools>=1.40.0
+requests>=2.27.0
+retry>=0.9.2
+charset-normalizer>=2.0.0
+
+# Cloud Storage (optional, for S3 access)
+# moto>=4.0.0  # Uncomment if you need S3 mocking
+
+# ==========================================
+# Jupyter Notebook (optional)
+# ==========================================
+# jupyter>=1.0.0
+# jupyterlab>=3.0.0
+# ipywidgets>=7.6.0
+
+# ==========================================
+# Installation Order:
+# ==========================================
+# 1. Create environment:
+#    conda create -n ggtp python=3.9
+#    conda activate ggtp
+#
+# 2. Install PyTorch (CUDA 11.7):
+#    conda install pytorch==2.0.1 pytorch-cuda=11.7 -c pytorch -c nvidia
+#
+# 3. Install PyTorch Geometric:
+#    pip install torch-geometric
+#    pip install torch-scatter torch-sparse -f https://data.pyg.org/whl/torch-2.0.1+cu117.html
+#
+# 4. Install other dependencies:
+#    pip install -r requirements.txt
+#
+# 5. Install nuPlan devkit from source:
+#    cd ..
+#    git clone https://github.com/motional/nuplan-devkit.git
+#    cd nuplan-devkit
+#    pip install -e .
+#    cd ../GGTP
+#
+# 6. Verify installation:
+#    python check_environment.py
+
+# ==========================================
+# Notes:
+# ==========================================
+# - Use Python 3.9 (Python 3.10+ may have compatibility issues with nuPlan)
+# - Install PyTorch and PyTorch Geometric before other packages
+# - nuPlan devkit must be installed from source, not from PyPI
+# - If you encounter errors with numpy, downgrade to numpy<1.24

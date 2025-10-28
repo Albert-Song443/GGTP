@@ -1,0 +1,11 @@
+{
+  "num_scenarios": 100,
+  "avg_collision_risk": 851.8979498887062,
+  "avg_realism": 0.7999999999999998,
+  "criticality_distribution": {
+    "CRITICAL": 29,
+    "HIGH": 35,
+    "MEDIUM": 33,
+    "LOW": 3
+  }
+}
